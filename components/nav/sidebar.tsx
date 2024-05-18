@@ -31,6 +31,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import NewOrderModal from "@/features/orders/components/new-order-modal";
+import { Button } from "../ui/button";
 
 const navigation = [
   {
@@ -90,7 +92,7 @@ const navigation = [
 
 export default function SideBar() {
   return (
-    <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-zinc-900 px-6 pb-4 ring-1 ring-white/10">
+    <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-black px-6 pb-4 ring-1 ring-white/10">
       <div className="flex h-16 shrink-0 items-center justify-between">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -115,12 +117,15 @@ export default function SideBar() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <div className="flex items-center gap-x-4">
-          <MagnifyingGlassIcon
-            className="h-5 w-5 text-white"
-            aria-hidden="true"
-          />
-          <PencilSquareIcon className="h-5 w-5 text-white" aria-hidden="true" />
+        <div className="flex items-center gap-x-2">
+          <Button size={"icon"} variant={"ghost"} className="w-7 h-7">
+            <MagnifyingGlassIcon className="h-5 w-5 " aria-hidden="true" />
+          </Button>
+          <NewOrderModal>
+            <Button size={"icon"} variant={"ghost"} className="w-7 h-7">
+              <PencilSquareIcon className="h-5 w-5 " aria-hidden="true" />
+            </Button>
+          </NewOrderModal>
         </div>
       </div>
       <nav className="flex flex-1 flex-col">
