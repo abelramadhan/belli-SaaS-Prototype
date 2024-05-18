@@ -164,7 +164,11 @@ export default function NewOrderModal(props: NewOrderModalProps) {
                 <div className="space-y-4 max-w-[280px]">
                   <OrderSummaryCard />
                   <BalanceCard />
-                  <Button variant={"secondary"} className="w-full">
+                  <Button
+                    type="button"
+                    variant={"secondary"}
+                    className="w-full"
+                  >
                     <ScrollTextIcon className="w-4 h-4" />
                     View Invoice
                   </Button>
