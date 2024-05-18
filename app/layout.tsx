@@ -6,6 +6,9 @@ import { CollaborativeApp } from "@/app/CollaborativeApp";
 import { Room } from "@/app/Room";
 import { cn } from "@/lib/utils";
 import UIWrapper from "@/components/ui/wrapper";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,15 +25,18 @@ export default function RootLayout({
       lang="en"
       className={cn(
         "scrollbar h-full scroll-smooth antialiased ",
-
-        ` ${GeistSans.variable} ${GeistMono.variable}`,
+        ` ${GeistSans.className}`
       )}
     >
-      <body className="  h-full bg-zinc-900 text-white">
+      <body className=" h-full">
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          <TooltipProvider delayDuration={300}>
+            <UIWrapper>{children}</UIWrapper>
+          </TooltipProvider>
+        </ThemeProvider>
         {/* <ProgressBar />
       <Nav /> */}
-
-        <UIWrapper>{children}</UIWrapper>
+        <Toaster />
       </body>
     </html>
   );
